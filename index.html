@@ -1,21 +1,14 @@
 <!DOCTYPE html>
 <html>
-<head>
-                <style></style>
-            </head>
-            <body>
-                
+
+<body>
+
     <a href="/testpage1/">
-    <button>Go to Test Page</button>
+        <button>Go to Test Page</button>
     </a>
 
 
     <style>
-        .keyword {
-            max-width: 500px;
-            margin: 8px auto;
-        }
-
         search {
             display: flex;
             width: 500px;
@@ -48,22 +41,45 @@
         search button:hover {
             background: #ddd;
         }
+
+        .divrow {
+            border: 2px solid #bababa;
+            border-radius: 4px;
+            padding: 4px;
+            background-color: #e9e9e9;
+            max-width: 500px;
+            margin: 8px auto;
+        }
+
+        .divrowtext {
+            font-family: Arial;
+            margin: 5px;
+        }
     </style>
     <search>
         <input type="search" id="searchBox" placeholder="Search...">
         <button type="button" onclick="search()">Search</button>
     </search>
 
-    <div class="keyword" style="border: 2px solid #bababa; border-radius: 4px; padding: 4px; background-color: #e9e9e9">
-        <p style="font-family: Arial; margin: 5px">Apple</p>
+    <div class="divrow">
+        <p class="divrowtext">Apple</p>
+        <audio controls>
+            <source src="/1000hzbeep.wav">
+        </audio>
     </div>
 
-    <div class="keyword" style="border: 2px solid #bababa; border-radius: 4px; padding: 4px; background-color: #e9e9e9">
-        <p style="font-family: Arial; margin: 5px">Banana</p>
+    <div class="divrow">
+        <p class="divrowtext">Banana</p>
+        <audio controls>
+            <source src="/1000hzbeep.wav">
+        </audio>
     </div>
 
-    <div class="keyword" style="border: 2px solid #bababa; border-radius: 4px; padding: 4px; background-color: #e9e9e9">
-        <p style="font-family: Arial; margin: 5px">Crocodile</p>
+    <div class="divrow">
+        <p class="divrowtext">Crocodile</p>
+        <audio controls>
+            <source src="/1000hzbeep.wav">
+        </audio>
     </div>
 
     <script>
@@ -90,7 +106,9 @@ document.getElementById("searchBox").addEventListener("input", search);
 
 
 
-                <script>// Write JavaScript here</script>
-            
-        
-    </body>
+    <script>
+        // Write JavaScript here
+    </script>
+
+
+</body>
