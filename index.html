@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <title>OpenBerry Digital - firsttestpage</title>
-</head>
-
 <body>
+
+    <title>OpenBerry Digital - firsttestpage</title>
+
     <div style="text-align: center">
         <a href="/testpage1/">
             <button>Go to Test Page</button>
@@ -43,7 +42,7 @@
         }
 
         search button:hover {
-            background: #ddd;
+            background: #ddd
         }
 
         .divrow {
@@ -52,7 +51,7 @@
             padding: 4px;
             background-color: #e9e9e9;
             max-width: 500px;
-            margin: 8px auto;
+            margin: 8px auto
         }
 
         .divrowtext {
@@ -66,7 +65,31 @@
             font-size: 15px;
             margin: 4px 10px;
         }
+
+        .audiooutline {
+            background-color: #bababa;
+            display: block;
+            margin: 4px 6px;
+            outline: 3px solid #bababa;
+            border-radius: 50px
+        }
+
+        .background {
+            z-index: -1;
+            text-align: center;
+            border: 2px solid #bababa;
+            border-radius: 10px;
+            padding: 4px;
+            background-color: #ffffff;
+            margin: 8px auto;
+            text-align: center;
+            width: fit-content;
+            text-align: center;
+            min-width: 600px
+        }
     </style>
+
+    <div class="background"> 
 
     <search>
         <input type="search" id="searchBox" placeholder="Search...">
@@ -75,23 +98,24 @@
 
     <div class="divrow">
 
-        <p class="divrowtext">Apple</p>
+        <p class="divrowtext" style="text-align: left">Apple</p>
 
         <div style="height: 2px;"></div>
 
         <!-- tags paragraph -->
-        <p class="divrowsubtext" style="margin: 5px 20px">
-            <span style="font-size">Tags:</span> <span>Tag-1, Tag-2, Tag-3</span>
+        <p class="divrowsubtext" style="margin: 5px 20px; text-align: left">
+            <span style="font-size: 15px">Tags:</span>&emsp;<span style="font-size: 12px";>Tag-1, Tag-2, Tag-3</span>
         </p>
 
         <div style="height: 10px;"></div>
 
-        <div
-            style="background-color: #bababa; display: block; margin: 4px 6px; outline: 3px solid #bababa; border-radius: 50px">
-            <audio controls style="display: block; min-width: 488px; text-align: center">
+        <div class="audiooutline">
+            <audio controls="" style="display: block; min-width: 488px; text-align: center">
                 <source src="/1000hzbeep.wav">
             </audio>
         </div>
+
+    </div>
 
     </div>
 
@@ -115,4 +139,5 @@
 
 document.getElementById("searchBox").addEventListener("input", search);
     </script>
+
 </body>
