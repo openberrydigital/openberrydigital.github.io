@@ -3,7 +3,9 @@
 
 <body>
 
-    <title>OpenBerry Digital - firsttestpage</title>
+    <head>
+        <title>OpenBerry Digital - firsttestpage</title>
+    </head>
 
     <div style="text-align: center">
         <a href="/testpage1/">
@@ -76,46 +78,69 @@
 
         .background {
             z-index: -1;
-            text-align: center;
             border: 2px solid #bababa;
             border-radius: 10px;
             padding: 4px;
             background-color: #ffffff;
             margin: 8px auto;
-            text-align: center;
             width: fit-content;
             text-align: center;
             min-width: 600px
         }
     </style>
 
-    <div class="background"> 
+    <div class="background">
 
-    <search>
-        <input type="search" id="searchBox" placeholder="Search...">
-        <button type="button" onclick="search()">Search</button>
-    </search>
+        <search>
+            <input type="search" id="searchBox" placeholder="Search...">
+            <button type="button" onclick="search()">Search</button>
+        </search>
 
-    <div class="divrow">
+<!-- divrow -->
+        <div class="divrow">
 
-        <p class="divrowtext" style="text-align: left">Apple</p>
+            <p class="divrowtext" style="text-align: left">Apple</p>
 
-        <div style="height: 2px;"></div>
+            <div style="height: 2px;"></div>
 
-        <!-- tags paragraph -->
-        <p class="divrowsubtext" style="margin: 5px 20px; text-align: left">
-            <span style="font-size: 15px">Tags:</span>&emsp;<span style="font-size: 12px";>Tag-1, Tag-2, Tag-3</span>
-        </p>
+            <!-- tags paragraph -->
+            <p class="divrowsubtext" style="margin: 5px 20px; text-align: left">
+                <span style="font-size: 15px">Tags:</span>&emsp;<span style="font-size: 12px">Green, Red, Yellow, Brown</span>
+            </p>
 
-        <div style="height: 10px;"></div>
+            <div style="height: 10px;"></div>
 
-        <div class="audiooutline">
-            <audio controls="" style="display: block; min-width: 488px; text-align: center">
-                <source src="/1000hzbeep.wav">
-            </audio>
+            <div class="audiooutline">
+                <audio controls="" style="display: block; min-width: 488px; text-align: center">
+                    <source src="/1000hzbeep.wav">
+                </audio>
+            </div>
+
         </div>
+<!-- divrow -->
 
-    </div>
+<!-- divrow -->
+        <div class="divrow">
+
+            <p class="divrowtext" style="text-align: left">Banana</p>
+
+            <div style="height: 2px;"></div>
+
+            <!-- tags paragraph -->
+            <p class="divrowsubtext" style="margin: 5px 20px; text-align: left">
+                <span style="font-size: 15px">Tags:</span>&emsp;<span style="font-size: 12px">Yellow, Brown </span>
+            </p>
+
+            <div style="height: 10px;"></div>
+
+            <div class="audiooutline">
+                <audio controls="" style="display: block; min-width: 488px; text-align: center">
+                    <source src="/1000hzbeep.wav">
+                </audio>
+            </div>
+
+        </div>
+<!-- divrow -->
 
     </div>
 
@@ -141,3 +166,5 @@ document.getElementById("searchBox").addEventListener("input", search);
     </script>
 
 </body>
+
+</html>
