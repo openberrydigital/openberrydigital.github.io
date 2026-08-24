@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html>
 
+<head>
+    <title>OpenBerry Digital - firsttestpage</title>
+</head>
+
 <body>
-
-    <a href="/testpage1/">
-        <button>Go to Test Page</button>
-    </a>
-
+    <div style="text-align: center">
+        <a href="/testpage1/">
+            <button>Go to Test Page</button>
+        </a>
+    </div>
 
     <style>
         search {
@@ -43,8 +47,8 @@
         }
 
         .divrow {
-            border: 2px solid #bababa;
-            border-radius: 4px;
+            border: 2px solid #d5d5d5;
+            border-radius: 10px;
             padding: 4px;
             background-color: #e9e9e9;
             max-width: 500px;
@@ -52,34 +56,43 @@
         }
 
         .divrowtext {
-            font-family: Arial;
-            margin: 5px;
+            font-family: Segoe UI;
+            font-size: 20px;
+            margin: 4px 10px;
+        }
+
+        .divrowsubtext {
+            font-family: Segoe UI;
+            font-size: 15px;
+            margin: 4px 10px;
         }
     </style>
+
     <search>
         <input type="search" id="searchBox" placeholder="Search...">
         <button type="button" onclick="search()">Search</button>
     </search>
 
     <div class="divrow">
+
         <p class="divrowtext">Apple</p>
-        <audio controls>
-            <source src="/1000hzbeep.wav">
-        </audio>
-    </div>
 
-    <div class="divrow">
-        <p class="divrowtext">Banana</p>
-        <audio controls>
-            <source src="/1000hzbeep.wav">
-        </audio>
-    </div>
+        <div style="height: 2px;"></div>
 
-    <div class="divrow">
-        <p class="divrowtext">Crocodile</p>
-        <audio controls>
-            <source src="/1000hzbeep.wav">
-        </audio>
+        <!-- tags paragraph -->
+        <p class="divrowsubtext" style="margin: 5px 20px">
+            <span style="font-size">Tags:</span> <span>Tag-1, Tag-2, Tag-3</span>
+        </p>
+
+        <div style="height: 10px;"></div>
+
+        <div
+            style="background-color: #bababa; display: block; margin: 4px 6px; outline: 3px solid #bababa; border-radius: 50px">
+            <audio controls style="display: block; min-width: 488px; text-align: center">
+                <source src="/1000hzbeep.wav">
+            </audio>
+        </div>
+
     </div>
 
     <script>
@@ -102,13 +115,4 @@
 
 document.getElementById("searchBox").addEventListener("input", search);
     </script>
-
-
-
-
-    <script>
-        // Write JavaScript here
-    </script>
-
-
 </body>
