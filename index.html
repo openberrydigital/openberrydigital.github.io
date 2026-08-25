@@ -87,7 +87,28 @@
             text-align: center;
             min-width: 600px
         }
+
+        .bodybackground {
+            background-repeat: repeat;
+            background-attachment: fixed;
+        }
     </style>
+
+    <button onclick="changeMode('lightmode-colormode')">
+    Light Mode + Color
+</button>
+
+<button onclick="changeMode('darkmode-colormode')">
+    Dark Mode + Color
+</button>
+
+<button onclick="changeMode('lightmode-noncolormode')">
+    Light Mode + Non-Color
+</button>
+
+<button onclick="changeMode('darkmode-noncolormode')">
+    Dark Mode + Non-Color
+</button>
 
     <div class="background">
 
@@ -96,7 +117,7 @@
             <button type="button" onclick="search()">Search</button>
         </search>
 
-<!-- divrow -->
+        <!-- divrow -->
         <div class="divrow">
 
             <p class="divrowtext" style="text-align: left">Apple</p>
@@ -117,9 +138,9 @@
             </div>
 
         </div>
-<!-- divrow -->
+        <!-- divrow -->
 
-<!-- divrow -->
+        <!-- divrow -->
         <div class="divrow">
 
             <p class="divrowtext" style="text-align: left">Banana</p>
@@ -140,7 +161,7 @@
             </div>
 
         </div>
-<!-- divrow -->
+        <!-- divrow -->
 
     </div>
 
@@ -163,6 +184,28 @@
 }
 
 document.getElementById("searchBox").addEventListener("input", search);
+    </script>
+
+    <script>
+        const backgrounds = {
+    "lightmode-colormode": "sitebgimages/site_background_lightmode_colormode.png",
+    "darkmode-colormode": "sitebgimages/site_background_darkmode_colormode.png",
+    "lightmode-noncolormode": "sitebgimages/site_background_lightmode_noncolormode.png",
+    "darkmode-noncolormode": "sitebgimages/site_background_darkmode_noncolormode.png"
+};
+
+function changeMode(mode) {
+    localStorage.setItem("siteMode", mode);
+
+    document.body.style.backgroundImage =
+        `url("${backgrounds[mode]}")`;
+}
+
+// Load the user's saved preference
+const savedMode =
+    localStorage.getItem("siteMode") || "lightmode-colormode";
+
+changeMode(savedMode);
     </script>
 
 </body>
