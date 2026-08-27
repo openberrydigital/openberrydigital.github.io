@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>OpenBerry Digital - firsttestpage</title>
+</head>
+
+<body>
+
+
+
+    <div style="text-align: center">
+        <a href="/testpage1/">
+            <button>Go to Test Page</button>
+        </a>
+    </div>
+
+    <style>
+        :root {
+            --divrow-background: #e9e9e9;
+            --divrow-border: #d5d5d5;
+            --background-background: #ffffff;
+            --background-border: #bababa;
+            --text-color: #222222;
+            --audio-background: #bababa;
+            --search-background: #ffffff;
+            --search-border: #888888;
+            --search-text: #222222;
+            --search-button: #dddddd;
+            --search-button-hover: #cccccc;
+        }
+
+        search {
+            display: flex;
+            width: 500px;
+            margin: 20px auto;
+        }
+
+        #searchBox {
+            flex: 1;
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid var(--search-border);
+            border-right: none;
+            border-radius: 5px 0 0 5px;
+            outline: none;
+            background: var(--search-background);
+            color: var(--search-text);
+        }
+
+        #searchBox:focus {
+            border-color: var(--search-border);
+            background: var(--search-background);
+        }
+
+        search button {
+            padding: 10px 18px;
+            border: 1px solid  var(--search-button-border);
+            border-radius: 0 5px 5px 0;
+            background: var(--search-button);
+            color: var(--search-text);
+            cursor: pointer;
+        }
+
+        .divrow {
+            border: 2px solid var(--divrow-border);
+            border-radius: 10px;
+            padding: 4px;
+            background-color: var(--divrow-background);
+            max-width: 500px;
+            margin: 8px auto;
+        }
+
+        .divrowtext {
+            font-family: Segoe UI;
+            font-size: 20px;
+            margin: 4px 10px;
+            color: var(--text-color);
+        }
+
+        .divrowsubtext {
+            font-family: Segoe UI;
+            font-size: 15px;
+            margin: 4px 10px;
+            color: var(--text-color);
+        }
+
+        .audiooutline {
+            background-color: var(--audio-background);
+            display: block;
+            margin: 4px 6px;
+            outline: 3px solid var(--audio-background);
+            border-radius: 50px;
+        }
+
+        .background {
+            z-index: -1;
+            border: 2px solid var(--background-border);
+            border-radius: 10px;
+            padding: 4px;
+            background-color: var(--background-background);
+            margin: 8px auto;
+            width: fit-content;
+            text-align: center;
+            min-width: 600px
+        }
+
+        body {
+            background-repeat: repeat;
+            background-size: 5%;
+            background-attachment: fixed;
+        }
+
+        .metadata {
+            display: none;
+            font-size: 0;
+        }
+    </style>
+
+    <select id="modeSelector" onchange="changeMode(this.value)">
+        <option value="lightmode-colormode">Light Mode + Color</option>
+        <option value="darkmode-colormode">Dark Mode + Color</option>
+        <option value="lightmode-noncolormode">Light Mode + Non-Color</option>
+        <option value="darkmode-noncolormode">Dark Mode + Non-Color</option>
+    </select>
+
+    <div class="background">
+
+        <select id="categoryFilter">
+        <option value="">All Categories</option>
+        <option value="category:industrial">Industrial</option>
+        <option value="category:machinery">Machinery</option>
+        <option value="category:realistic">Realistic</option>
+        <option value="category:electric">Electric</option>
+    </select>
+
+        <search class="search button">
+            <input type="search" id="searchBox" placeholder="Search...">
+            <button type="button" onclick="search()">Search</button>
+        </search>
+
+        <!-- divrow -->
+        <div class="divrow">
+
+            <p class="divrowtext" style="text-align: left">Apple</p>
+
+            <div style="height: 2px;"></div>
+
+            <!-- tags paragraph -->
+            <p class="divrowsubtext" style="margin: 5px 20px; text-align: left">
+                <span style="font-size: 15px">Tags:</span>&emsp;<span style="font-size: 12px">Green, Red, Yellow, Brown</span>
+
+                <span class="metadata">
+                    !free, category:industrial, category:machinery
+                </span>
+
+            </p>
+
+            <div style="height: 10px;"></div>
+
+            <div class="audiooutline">
+                <audio controls="" style="display: block; min-width: 488px; text-align: center">
+                    <source src="/1000hzbeep.wav">
+                </audio>
+            </div>
+
+        </div>
+        <!-- divrow -->
+
+        <!-- divrow -->
+        <div class="divrow">
+
+            <p class="divrowtext" style="text-align: left">Apple</p>
+
+            <div style="height: 2px;"></div>
+
+            <!-- tags paragraph -->
+            <p class="divrowsubtext" style="margin: 5px 20px; text-align: left">
+                <span style="font-size: 15px">Tags:</span>&emsp;<span style="font-size: 12px">Green, Red, Yellow, Brown</span>
+
+                <span class="metadata">
+                    !free, category:industrial, category:machinery
+                </span>
+
+            </p>
+
+            <div style="height: 10px;"></div>
+
+            <div class="audiooutline">
+                <audio controls="" style="display: block; min-width: 488px; text-align: center">
+                    <source src="/1000hzbeep.wav">
+                </audio>
+            </div>
+
+        </div>
+        <!-- divrow -->
+
+    </div>
+
+    <script>
+        function search() {
+    let searchBox = document.getElementById("searchBox");
+    let searchText = searchBox.value.toLowerCase();
+
+    let categoryFilter = document.getElementById("categoryFilter");
+    let selectedCategory = categoryFilter.value.toLowerCase();
+
+    let keywords = document.getElementsByClassName("divrow");
+
+    for (let i = 0; i < keywords.length; i++) {
+
+        let keywordText = keywords[i].textContent.toLowerCase();
+
+        let searchMatches = keywordText.includes(searchText);
+
+        let categoryMatches =
+            selectedCategory === "" ||
+            keywordText.includes(selectedCategory);
+
+        if (searchMatches && categoryMatches) {
+            keywords[i].style.display = "block";
+        } else {
+            keywords[i].style.display = "none";
+        }
+    }
+}
+
+document.getElementById("searchBox").addEventListener("input", search);
+document.getElementById("categoryFilter").addEventListener("change", search);
+    </script>
+
+    <script>
+        const backgrounds = {
+    "lightmode-colormode": "sitebgimages/site_background_lightmode_colormode.png",
+    "darkmode-colormode": "sitebgimages/site_background_darkmode_colormode.png",
+    "lightmode-noncolormode": "sitebgimages/site_background_lightmode_noncolormode.png",
+    "darkmode-noncolormode": "sitebgimages/site_background_darkmode_noncolormode.png"
+};
+
+const colorSchemes = {
+
+    "lightmode-colormode": {
+        "--divrow-background": "#b6dcdd",
+        "--divrow-border": "#d9eeee",
+        "--background-background": "#d9eeee",
+        "--background-border": "#b6dcdd",
+        "--text-color": "#123638",
+        "--audio-background": "#b6dcdd",
+
+        "--search-background": "#f5fbfb",
+        "--search-border": "#90c4c7",
+        "--search-text": "#123638",
+        "--search-button": "#b6dcdd",
+        "--search-button-hover": "#90c4c7",
+
+        "--button-background": "#b6dcdd",
+        "--button-border": "#90c4c7",
+        "--button-text": "#123638",
+        "--button-hover": "#90c4c7",
+
+        "--search-button-border": "#90c4c7"
+    },
+
+    "darkmode-colormode": {
+        "--divrow-background": "#014548",
+        "--divrow-border": "#056469",
+        "--background-background": "#056469",
+        "--background-border": "#014548",
+        "--text-color": "#ffffff",
+        "--audio-background": "#056469",
+
+        "--search-background": "#014548",
+        "--search-border": "#056469",
+        "--search-text": "#ffffff",
+        "--search-button": "#056469",
+        "--search-button-hover": "#014548",
+
+        "--button-background": "#056469",
+        "--button-border": "#014548",
+        "--button-text": "#ffffff",
+        "--button-hover": "#014548",
+        
+        "--search-button-border": "#014548"
+    },
+
+    "lightmode-noncolormode": {
+        "--divrow-background": "#dadada",
+        "--divrow-border": "#f2f2f2",
+        "--background-background": "#f2f2f2",
+        "--background-border": "#dadada",
+        "--text-color": "#222222",
+        "--audio-background": "#dadada",
+
+        "--search-background": "#fafafa",
+        "--search-border": "#c7c7c7",
+        "--search-text": "#222222",
+        "--search-button": "#dadada",
+        "--search-button-hover": "#c7c7c7",
+
+        "--button-background": "#dadada",
+        "--button-border": "#c7c7c7",
+        "--button-text": "#222222",
+        "--button-hover": "#c7c7c7",
+
+        "--search-button-border": "#c7c7c7"
+    },
+
+    "darkmode-noncolormode": {
+        "--divrow-background": "#292929",
+        "--divrow-border": "#424242",
+        "--background-background": "#424242",
+        "--background-border": "#292929",
+        "--text-color": "#ffffff",
+        "--audio-background": "#424242",
+
+        "--search-background": "#292929",
+        "--search-border": "#424242",
+        "--search-text": "#ffffff",
+        "--search-button": "#424242",
+        "--search-button-hover": "#292929",
+
+        "--button-background": "#424242",
+        "--button-border": "#292929",
+        "--button-text": "#ffffff",
+        "--button-hover": "#292929",
+
+        "--search-button-border": "#292929"
+    }
+
+};
+
+function changeMode(mode) {
+
+    localStorage.setItem("siteMode", mode);
+
+    const scheme = colorSchemes[mode];
+
+    for (const variable in scheme) {
+        document.documentElement.style.setProperty(
+            variable,
+            scheme[variable]
+        );
+    }
+
+    document.body.style.backgroundImage =
+        `url("${backgrounds[mode]}")`;
+
+    document.getElementById("modeSelector").value = mode;
+}
+
+const savedMode =
+    localStorage.getItem("siteMode") || "lightmode-colormode";
+
+changeMode(savedMode);
+    </script>
+
+</body>
+
+</html>
